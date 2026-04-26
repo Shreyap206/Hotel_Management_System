@@ -1,0 +1,189 @@
+/* 
+ * Main Stylesheet for The Grand Resort System
+ */
+
+/* General Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Inter', 'Roboto', sans-serif; /* Modern typography */
+}
+
+/* Background Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/bg.png'); /* Our newly generated image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Optional Overlay if text needs better contrast */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Subtle dark overlay for premium feel */
+    z-index: 1;
+}
+
+/* Header/Nav Bar Overlay */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95); /* Slightly translucent white background header */
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.logo-primary {
+    color: #e62e2d; /* Red color matching user's image (LODGE MANAGEMENT) */
+}
+
+.logo-secondary {
+    color: #0b4b8a; /* Blue color matching user's image (ADMIN) */
+    text-decoration: none;
+}
+
+.logo-secondary:hover {
+    color: #0d61b3;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
+    z-index: 100;
+    top: calc(100% + 10px);
+    left: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-content.show-dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    font-weight: normal;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8f9fa;
+    color: #0b4b8a;
+}
+
+/* Main Content Area */
+.main-content {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15vh; /* Push down from the header */
+    text-align: center;
+}
+
+.main-title {
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+/* Login link on the right (Optional, but good for an HMS) */
+.nav-links {
+    margin-left: auto;
+}
+
+.login-btn {
+    background-color: #0b4b8a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #083666;
+}
+
+/* Simple Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    header {
+        padding: 15px 20px;
+    }
+    .logo-container {
+        font-size: 0.9rem;
+    }
+}

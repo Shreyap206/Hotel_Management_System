@@ -1,0 +1,12 @@
+USE hotel_db;
+CREATE TABLE IF NOT EXISTS drivers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    age INT NOT NULL,
+    gender VARCHAR(20) NOT NULL,
+    car_company VARCHAR(100) NOT NULL,
+    car_brand VARCHAR(100) NOT NULL,
+    available VARCHAR(10) NOT NULL,
+    location VARCHAR(200) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
